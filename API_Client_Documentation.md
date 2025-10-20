@@ -176,7 +176,8 @@ $.ajax({
             "nom": "OU****K",
             "prenom": "K*****a",
             "dateCreationClient": "2025-03-14 13:45:57",
-            "DDP": "2025-03-14 13:45:57",
+            "date_naissance": "1998-01-22 00:00:00",
+            "DPmt": "2025-03-14 13:45:57",
             "esp": "0",
             "cb": "0",
             "chq": "0",
@@ -185,14 +186,16 @@ $.ajax({
             "rh": "Erh636 Mounia BENMEZINE",
             "Ymd": "Y2412",
             "city": "Agadir",
-            "NSh": "4"
+            "TDYNSh": "4", // utilisé le MAX pour la valeur
+            "TDYINST": "0" // utilisé le MAX pour la valeur
         },
         {
             "client_id": "671214076",
             "nom": "OU****K",
             "prenom": "K*****a",
             "dateCreationClient": "2025-03-14 13:45:57",
-            "DDP": "2025-03-14 15:49:15",
+            "date_naissance": "1998-01-22 00:00:00",
+            "DPmt": "2025-03-14 15:49:15",
             "esp": "300",
             "cb": "0",
             "chq": "0",
@@ -201,14 +204,16 @@ $.ajax({
             "rh": "Admin Epiltech",
             "Ymd": "Y1702",
             "city": "Agadir",
-            "NSh": "4"
+            "TDYNSh": "4", // utilisé le MAX pour la valeur
+            "TDYINST": "0" // utilisé le MAX pour la valeur
         },
         {
             "client_id": "671214076",
             "nom": "OU****K",
             "prenom": "K*****a",
             "dateCreationClient": "2025-03-14 13:45:57",
-            "DDP": "2025-05-02 17:11:17",
+            "date_naissance": "1998-01-22 00:00:00",
+            "DPmt": "2025-05-02 17:11:17",
             "esp": "700",
             "cb": "0",
             "chq": "0",
@@ -217,7 +222,8 @@ $.ajax({
             "rh": "Admin Epiltech",
             "Ymd": "Y1702",
             "city": "Agadir",
-            "NSh": "4"
+            "TDYNSh": "4", // utilisé le MAX pour la valeur
+            "TDYINST": "0" // utilisé le MAX pour la valeur
         },
         ...
     ]
