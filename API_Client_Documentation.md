@@ -234,5 +234,5 @@ $.ajax({
 - Le backend retourne des objets JSON structurés.
 - Les dates sont au format `YYYY-MM-DD`.
 - Les montants (`esp`, `cb`, `chq`, `tt_mnt`) incluent tous les modes de paiement, y compris les paiements échelonnés.
-- `TDYNSh` et `TDYINST` indiquent respectivement le nombre de "No Show" et d'instances maximales par client.
+- Pour les champs `TDYNSh` et `TDYINST` utilisé le MAX.
 
