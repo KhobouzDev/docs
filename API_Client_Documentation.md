@@ -28,15 +28,17 @@ Vérifie si un client existe dans la base de données à partir de son identifia
 
 | Nom        | Type | Obligatoire | Description                      |
 | ---------- | ---- | ----------- | -------------------------------- |
-| client\_id | int  | ✅ Oui       | Identifiant du client à vérifier |
+| searchKeyword | int  | ✅ Oui       | Identifiant ou telephone du client à vérifier  |
 
-### **Exemple de requête (AJAX / jQuery)**
+### **Exemples de requête (AJAX / jQuery)**
+
+#### **Exemple ID**
 
 ```js
 $.ajax({
   url: 'https://365965.center/epiltech/web/api/client/exist',
   type: 'GET',
-  data: { client_id: 671214076 },
+  data: { searchKeyword: 671214076 },
   headers: { 'X-API-KEY': 'YOUR_SECRET_KEY' },
   success: function(response) {
     if (response.exists) {
@@ -48,7 +50,35 @@ $.ajax({
 });
 ```
 
-### **Réponse**
+#### **Réponse**
+
+```json
+{
+  "success": true,
+  "exists": true,
+  "client_id": 671214076
+}
+```
+
+#### **Exemple Telephone**
+
+```js
+$.ajax({
+  url: 'https://365965.center/epiltech/web/api/client/exist',
+  type: 'GET',
+  data: { searchKeyword: 0708053146 },
+  headers: { 'X-API-KEY': 'YOUR_SECRET_KEY' },
+  success: function(response) {
+    if (response.exists) {
+      console.log("✅ Client existe !");
+    } else {
+      console.log("❌ Client introuvable.");
+    }
+  }
+});
+```
+
+#### **Réponse**
 
 ```json
 {
@@ -116,14 +146,23 @@ $.ajax({
     "clients": [
         {
             "client_id": "671214076",
-            "nom": "OU****K",
-            "prenom": "K*****a",
+            "nom": "OUMALEK",
+            "prenom": "Khadija",
             "dateCreationClient": "2025-03-14 13:45:57",
-            "DDP": "2025-10-01 12:16:07",
-            "CA": "8000",
+            "date_naissance": "1998-01-22 00:00:00",
+            "telephone": "0708053146",
+            "DPmt": "2025-10-01 12:16:07",
+            "esp": "5000",
+            "cb": "3000",
+            "chq": "0",
+            "tt_mnt": "8000",
             "mg": "MG12",
             "rh": "Erh733 ILHAM ECHIHI",
-            "YmD": "Y2509"
+            "YmD": "Y2509",
+            "city": "Agadir",
+            "TDYNSh": "4",
+            "TDYINST": "0",
+            "TDYPSG": "10"
         }
     ]
 }
@@ -174,9 +213,9 @@ $.ajax({
   type: 'GET',
   data: {
     client_id: 671214076,
-    date_start: '2025-01-01',
-    date_end: '2025-10-21',
-    city: 'Agadir'
+    date_start: '2025-03-14',
+    date_end: '2025-03-15',
+    min_tt_mnt: 300
   },
   headers: { 'X-API-KEY': 'YOUR_SECRET_KEY' },
   success: function(response) {
@@ -197,21 +236,23 @@ $.ajax({
     "clients": [
         {
             "client_id": "671214076",
-            "nom": "OU****K",
-            "prenom": "K*****a",
+            "nom": "OUMALEK",
+            "prenom": "Khadija",
             "dateCreationClient": "2025-03-14 13:45:57",
             "date_naissance": "1998-01-22 00:00:00",
-            "DPmt": "2025-03-14 13:45:57",
-            "esp": "0",
+            "telephone": "0708053146",
+            "DPmt": "2025-03-14 15:49:15",
+            "esp": "300",
             "cb": "0",
             "chq": "0",
-            "tt_mnt": "0",
+            "tt_mnt": "300",
             "mg": "MG12",
-            "rh": "Erh636 Mounia BENMEZINE",
-            "Ymd": "Y2412",
+            "rh": "Admin Epiltech",
+            "Ymd": "Y1702",
             "city": "Agadir",
             "TDYNSh": "4",
-            "TDYINST": "0"
+            "TDYINST": "0",
+            "TDYPSG": "10"
         }
     ]
 }
@@ -234,5 +275,5 @@ $.ajax({
 - Le backend retourne des objets JSON structurés.
 - Les dates sont au format `YYYY-MM-DD`.
 - Les montants (`esp`, `cb`, `chq`, `tt_mnt`) incluent tous les modes de paiement, y compris les paiements échelonnés.
-- Pour les champs `TDYNSh` et `TDYINST` utilisé le MAX.
+- Pour les champs `TDY` utilisé le MAX.
 
